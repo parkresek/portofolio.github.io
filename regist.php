@@ -37,6 +37,8 @@
         </div>
     </nav>
     <div class="container" style="margin-top: 100px;">
+    <h1 style="margin-bottom: 40px;">Web Design Orders</h1>
+    <hr>
         <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">First name</label>
@@ -55,7 +57,6 @@
             <div class="col-md-4">
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
                     <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
                         Please choose a username.
@@ -93,6 +94,7 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="col-12">
                 <button class="btn btn-primary text-white" type="submit">Submit form</button>
             </div>
