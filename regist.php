@@ -32,24 +32,24 @@
                     <li class="nav-item" style="margin-left: 15px;">
                         <a class="nav-link active" href="regist.php">Regist</a>
                     </li>
-                    </form>
+                </ul>
             </div>
         </div>
     </nav>
     <div class="container" style="margin-top: 100px;">
-    <h1 style="margin-bottom: 40px;">Web Design Orders</h1>
-    <hr>
-        <form class="row g-3 needs-validation" novalidate>
+        <h1 style="margin-bottom: 40px;">Web Design Orders</h1>
+        <hr>
+        <form action="" method="POST" class="row g-3 needs-validation" novalidate>
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" value="" required>
+                <input type="text" name="nama_depan" class="form-control" id="validationCustom01" value="" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
             </div>
             <div class="col-md-4">
                 <label for="validationCustom02" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="validationCustom02" value="" required>
+                <input type="text" name="nama_belakang" class="form-control" id="validationCustom02" value="" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -57,7 +57,7 @@
             <div class="col-md-4">
                 <label for="validationCustomUsername" class="form-label">Email</label>
                 <div class="input-group has-validation">
-                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                    <input type="email" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
                         Please choose a username.
                     </div>
@@ -65,22 +65,9 @@
             </div>
             <div class="col-md-6">
                 <label for="validationCustom03" class="form-label">Address</label>
-                <input type="text" class="form-control" id="validationCustom03" required>
+                <input type="text" name="alamat" class="form-control" id="validationCustom03" required>
                 <div class="invalid-feedback">
                     Please provide a valid Address.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom04" class="form-label">City</label>
-                <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value="">Pilih..</option>
-                    <option>Majene</option>
-                    <option>Mamuju</option>
-                    <option>Makassar</option>
-                    <option>Mamasa</option>
-                </select>
-                <div class="invalid-feedback">
-                    Please select a valid City.
                 </div>
             </div>
             <div class="col-12">
@@ -98,8 +85,9 @@
             <div class="col-12">
                 <button class="btn btn-primary text-white" type="submit">Submit form</button>
             </div>
+        </form>
     </div>
-    </form>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -112,5 +100,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 </body>
+<?php 
+$nama_depan =$_POST['nama_depan'];
+$nama_belakang =$_POST['nama_belakang'];
+$email =$_POST['email'];
+$alamat =$_POST['alamat'];
+
+include 'koneksi.php';
+
+ $sql ="INSERT INTO data values ('$nama_depan','$nama_belakang','$email','$alamat') ";
+
+ if (mysqli_query($kon, $sql)){
+     echo"data berhasil disimpan";
+     echo"<br>";
+}
+else{
+    echo"eror". $sql ."<br>" . mysqli_error($kon);
+}
+?>
 
 </html>
